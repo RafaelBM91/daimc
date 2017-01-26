@@ -1,0 +1,455 @@
+			body {
+				background-color: #CCC;
+				font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+				overflow-x: hidden;
+			}
+
+			section#total {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 1300px;
+				height: 800px;
+				background-color: #FFF;
+			}
+
+			input[type="checkbox"] {
+				width: 15px;
+				height: 15px;
+				padding: 0;
+				margin: 0;
+				vertical-align: bottom;
+				position: relative;
+				top: -1px;
+				*overflow: hidden;
+				cursor: pointer;
+			}
+
+			input[type="radio"] {
+				width: 15px;
+				height: 15px;
+				padding: 0;
+				margin: 0;
+				position: relative;
+				top: 2px;
+				left: -4px;
+				cursor: pointer;
+			}
+
+			select {
+				cursor: pointer;
+			}
+
+			/*
+
+			input[type="checkbox"]{ visibility: hidden; }
+			input[type="radio"]{ visibility: hidden; }
+
+			input[type="checkbox"] + label span{
+				display: inline-block;
+  				width: 19px;
+  				height: 19px;
+  				background: url(../img/check_radio_sheet2.png) left top no-repeat;
+  				margin: -1px 4px 0 0;
+  				vertical-align: middle;
+  				cursor:pointer;
+			}
+
+			input[type="checkbox"]:checked + label span{
+  				background: url(../img/check_radio_sheet2.png) -19px top no-repeat;
+			}
+
+			input[type="radio"] + span{
+  				display: inline-block;
+  				width: 19px;
+  				height: 19px;
+  				background: url(../img/check_radio_sheet2.png) -38px top no-repeat;
+  				margin: -1px 4px 0 0;
+  				vertical-align: middle;
+  				cursor:pointer;
+			}
+
+			input[type="radio"]:checked + span{
+  				background: url(../img/check_radio_sheet2.png) -57px top no-repeat;
+			}
+
+			*/
+
+/*** INICIO DEL HEADER ***/
+
+			header {
+				position: absolute;
+				top: 0%;
+				left: 2%;
+				width: 96%;
+				height: 20%;
+				/*background-color: #4B6C9E;*/
+				background-color: #B734A0;
+				font-variant: small-caps;
+  				text-transform: none;
+  				color: #FFF;
+			}
+
+			header img {
+				position: absolute;
+				top: 6%;
+				left: 2%;
+				width: 15%;
+				height: 60%;
+			}
+
+			header div#tt0 {
+				position: absolute;
+				top: 2%;
+				left: 29%;
+				width: 40%;
+				height: 96%;
+				text-align: center;
+				line-height: 30px;
+			}
+
+			header div#tt0 span#tt1 {
+				font-weight: 700;
+				font-size: 20px;
+			}
+
+			header div#tt0 span#tt5 {
+				font-weight: 700;
+				font-size: 40px;
+			}
+
+			header div#tt0 span#tt3 {
+				font-weight: 700;
+				font-size: 20px;
+			}
+
+			header div#ts0 {
+				position: absolute;
+				top: 2%;
+				left: 74%;
+				width: 20%;
+				height: 96%;
+				text-align: center;
+				line-height: 25px;
+			}
+
+			header div#ts0 span#fch {
+				font-weight: 400;
+				font-size: 20px;
+				font-size: 15px;
+			}
+
+			header div#ts0 span#user {
+				font-weight: 400;
+				font-size: 20px;
+				font-size: 15px;
+			}
+
+			header div#ts0 a div#ico_close {
+				position: absolute;
+				top: 48%;
+				left: 45%;
+				background-image: url(../img/logo_entrada.png);
+				background-position: 100% 100%;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				width: 13%;
+				height: 25%;
+			}
+
+/*** FIN DEL HEADER ***/
+
+/*** INICIO DEL NAV ***/
+
+			nav {
+				position: absolute;
+				top: 15%;
+				left: 2%;
+				width: 96%;
+				height: 5%;
+				/*background-color: #465C71;*/
+				background-color: #B7347E;
+				font-size: 25px;
+			}
+
+			nav a button {
+				position: absolute;
+				top: 5%;
+				width: 100px;
+				/*background-color: #465c71;*/
+				background-color: #B7347E;
+				/*border: 1px #4e667d solid;*/
+				border: 1px #85235B solid;
+  				height: 90%;
+  				font-size: 15px;
+  				color: #FFF;
+  				cursor: pointer;
+  			}
+
+			nav a button:hover {
+				/*background-color: #8DA3B8;*/
+				background-color: #F02D9B;
+			}
+
+/*** FIN DEL NAV ***/
+
+/*** INICIO DEL SECTION ***/
+
+			section#zonawork {
+				position: absolute;
+				top: 20%;
+				left: 2%;
+				width: 96%;
+				height: 75%;
+				background-color: #FFF;
+				overflow-y: scroll;
+			}
+
+			section fieldset {
+				position: absolute;
+				top: 10px;
+				left: 3px;
+				width: 95.4%;
+				height: 93%;
+				padding: 20px 0% 0px 30px;
+			}
+			
+			/*
+			section fieldset input, section fieldset textarea, section fieldset select, section fieldset button {
+				margin: 0% 10px 25px 0%;
+			}
+
+			section fieldset input[type="text"], section fieldset input[type="password"], section fieldset select, section fieldset textarea, section fieldset input[type="date"] {
+            	width: 150px;
+            	font-size: 15px;
+            	text-transform: uppercase;
+			}
+
+			section fieldset input[type="button"], section fieldset button {
+    			height: 25px;
+    			width: 100px;
+    			cursor: pointer;
+    			font-family: consolas;
+    			font-size: 15px;
+			}
+
+			section fieldset textarea {
+    			overflow-x: hidden;
+    			resize: none;
+			}
+			*/
+
+			section fieldset div.nota_imp {
+    			visibility: hidden;
+    			position: absolute;
+    			top: 62%;
+    			left: 40%;
+    			width: 30%;
+    			height: 6%;
+    			background-color: #D1D178;
+    			border: 1px solid;
+    			padding-left: 0.5%;
+    			padding-bottom: 2.5%;
+			}
+
+			section fieldset p.nota_importante {
+    			width: 100%;
+    			font-size: 13px;
+    			color: #FF0000;
+    			font-family: Consolas;
+			}
+
+			label.msj_opr {
+    			display: none;
+    			position: absolute;
+    			top: 21px;
+    			left: 923px;
+    			width: 300px;
+    			height: 40px;
+    			font-size: 15px;
+    			text-align: center;
+    			color: #000000;
+    			font-family: Helvetica;
+    			background-color: #D1D178;
+    			border: 1px solid;
+    			padding-top: 0.6%;
+			}
+
+			label.user_reguistrado {
+    			display: none;
+    			position: absolute;
+    			top: 8%;
+    			left: 20%;
+    			font-size: 18px;
+    			color: #000000;
+    			font-family: consolas;
+			}
+
+/*** FIN DEL SECTION ***/
+
+/*** INICIO DEL FOOTER ***/
+
+			footer {
+				position: absolute;
+				bottom: 0%;
+				left: 2%;
+				width: 96%;
+				height: 5%;
+				/*background-color: #465c71;*/
+				background-color: #B734A0;
+			}
+
+/*** INICIO DEL FOOTER ***/
+
+/*** CONSULTA DE MORA ***/
+
+.conte_list {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: auto;
+    height: 80%;
+    max-width: 90%;
+    overflow: scroll;
+    border: 1px solid;
+}
+
+table.two {
+    position: static;
+    top: 0%;
+    left: 0%;
+}
+
+table.two tr td {
+    font-size: 12px;
+}
+
+table.two tr th {
+	font-size: 16px;
+	text-align: center;
+    text-transform: uppercase;
+    background-color: #8AD0FF;
+    height: 20px;
+}
+
+table.two tr.gray2 {
+    background-color: #FFF;
+}
+
+table.two tr.gray1 {
+    background-color: #F0F0F0;
+}
+
+table.two tr:hover {
+	background-color: #959595;
+}
+
+/*** FIN CONSULTA DE MORA ***/
+
+/*** VENTANA FLOTANTE ***/
+.vent_fond {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+}
+
+.ventana_flotante {
+    display: none;
+    background: none repeat scroll 0 0 #CCC;
+    background-image: url(../img/fondo11.jpg);
+    border: 1px solid #DDDDDD;
+    border-radius: 6px 6px 6px 6px;
+    bottom: 50px;
+    left: 33%;
+    margin-left: -120px;
+    padding: 10px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 50%;
+    height: 70%;
+    z-index: 15;
+    top: 10%;
+    font-family: Consolas;
+}
+
+.header_flot {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 9%;
+    border-radius: 6px 6px 0px 0px;
+    /*background-color: #4B6C9E;*/
+    background-color: #B734A0;
+    padding-top: 10px;
+    color: #FFF;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+}
+
+.titu_flot {
+    font-family: Helvetica;
+    font-size: 20px;
+}
+
+div.principal_flot {
+    position: absolute;
+    top: 11%;
+    left: 0%;
+    width: 100%;
+    height: 89%;
+    border-radius: 0px 0px 6px 6px;
+}
+
+.ventana_flotante input, label.name_user_flot {
+    position: absolute;
+}
+
+div.cont_users {
+    position: absolute;
+    top: 22%;
+    left: 5%;
+    width: 90%;
+    height: 50%;
+    overflow-y: scroll;
+    background-color: #FFF;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+/*** FIN VENTANA FLOTANTE ***/
+
+
+/*** NUEVO 2017 ***/
+
+div#show_table {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+
+div#show_table > div.nota {
+	font-size: 20px;
+	color: #FFF;
+	float: right;
+	margin-right: 40px;
+}
+
+div.bloque_busq_1,
+div.bloque_busq_2,
+div.bloque_busq_3,
+div.bloque_busq_4,
+div.bloque_busq_5,
+div.bloque_busq_6,
+div.bloque_busq_7,
+div.bloque_busq_8 {
+	display: none;
+}
