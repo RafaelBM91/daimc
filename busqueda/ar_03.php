@@ -5,27 +5,27 @@
     switch ($_GET['opc_busq']) {
         case '1': {
             // solo fecha
-            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.diagnostico, m.observacion, DATE_FORMAT(m.fecha, '%d-%m-%Y'), m.referido FROM medicina AS m, atendido AS a WHERE (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') ORDER BY m.fecha ASC;";
+            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.tipo, m.cantidad, DATE_FORMAT(m.fecha,'%d-%m-%y'), m.procedencia, m.monto, m.observacion FROM donacion AS m, atendido AS a WHERE (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') ORDER BY m.fecha ASC;";
             break;
         }
         case '2': {
-            // fecha + atendido cedula
-            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.diagnostico, m.observacion, DATE_FORMAT(m.fecha, '%d-%m-%Y'),m.referido FROM medicina AS m, atendido AS a WHERE (m.atendido_cedula = '{$_GET['cedula_atn_busq']}') AND (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') ORDER BY m.fecha ASC;";
+            // fecha + cedula atendido
+            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.tipo, m.cantidad, DATE_FORMAT(m.fecha,'%d-%m-%y'), m.procedencia, m.monto, m.observacion FROM donacion AS m, atendido AS a WHERE (m.atendido_cedula = '{$_GET['cedula_atn_busq']}') AND (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') ORDER BY m.fecha ASC;";
             break;
         }
         case '3': {
             // fecha + municipio
-            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.diagnostico, m.observacion, DATE_FORMAT(m.fecha, '%d-%m-%Y'), m.referido FROM medicina AS m, atendido AS a WHERE (a.procedencia LIKE '%{$_GET['municipio_atn_busq']}%') AND (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') ORDER BY m.fecha ASC;";
+            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.tipo, m.cantidad, DATE_FORMAT(m.fecha,'%d-%m-%y'), m.procedencia, m.monto, m.observacion FROM donacion AS m, atendido AS a WHERE (a.procedencia LIKE '%{$_GET['municipio_atn_busq']}%') AND (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') ORDER BY m.fecha ASC;";
             break;
         }
         case '4': {
             // fecha + parroquia
-            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.diagnostico, m.observacion, DATE_FORMAT(m.fecha, '%d-%m-%Y'), m.referido FROM medicina AS m, atendido AS a WHERE (a.procedencia = '{$_GET['parroquia_atn_busq']}') AND (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') ORDER BY m.fecha ASC;";
+            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.tipo, m.cantidad, DATE_FORMAT(m.fecha,'%d-%m-%y'), m.procedencia, m.monto, m.observacion FROM donacion AS m, atendido AS a WHERE (a.procedencia = '{$_GET['parroquia_atn_busq']}') AND (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') ORDER BY m.fecha ASC;";
             break;
         }
         case '7': {
             // fecha + edad
-            $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.diagnostico, m.observacion, DATE_FORMAT(m.fecha, '%d-%m-%Y'), m.referido FROM medicina AS m, atendido AS a WHERE (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') AND IF(-1 = {$_GET['edad_busq']},a.nacimiento = '0000-00-00',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0 = {$_GET['edad_busq']}) ORDER BY m.fecha ASC;";
+           $str = "SELECT m.id, a.cedula, a.nombres, IF(a.nacimiento = '0000-00-00','No Presenta',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0), a.sexo, a.procedencia, a.telefono, m.tipo, m.cantidad, DATE_FORMAT(m.fecha,'%d-%m-%y'), m.procedencia, m.monto, m.observacion FROM donacion AS m, atendido AS a WHERE (a.cedula = m.atendido_cedula) AND (m.fecha >= '{$_GET['desd_busq']}') AND (m.fecha <= '{$_GET['hast_busq']}') AND IF(-1 = {$_GET['edad_busq']},a.nacimiento = '0000-00-00',DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(a.nacimiento)), '%Y')+0 = {$_GET['edad_busq']}) ORDER BY m.fecha ASC;";
             break;
         }
     }
@@ -41,10 +41,12 @@
 
         $row[5] = "<font color=\"red\">".municipios(explode("_",$row[5])[0])."</font>  <strong>|</strong>  <font color=\"blue\">".parroquias($row[5])."</font>";
 
+        $row[7] = donacion($row[7]);
+
         $html .= "<tr id=\"datagrid-row-r1-2-{$tr}\">";
         for ($i = 0; $i < (sizeof($row)/2); $i++) {
             $cont = $i + 1;
-            $rou = $row[$i];
+            $rou = $row[$i]; // utf8_encode($row[$i]);
             if ($i == 4) {
                 if ($row[$i] == 'f') {
                     $femeninas++;
@@ -55,6 +57,7 @@
                     $class = 'mas';
                 }
             } else $class = '';
+
             $html .= "<td field=\"item{$cont}\"><div class=\"{$class}\">{$rou}</div></td>";
         }
         $html .= "</tr>";
@@ -98,12 +101,14 @@
                     <th data-options="field:'item3',width:150">NOMBRE Y APELLIDO</th>
                     <th data-options="field:'item4',width:100">EDAD</th>
                     <th data-options="field:'item5',width:50">SEXO</th>
-                    <th data-options="field:'item7',width:200">MUNICIPIO / PARROQUIA</th>
+                    <th data-options="field:'item6',width:200">MUNICIPIO / PARROQUIA</th>
                     <th data-options="field:'item8',width:80">TELEFONO</th>
-                    <th data-options="field:'item9',width:150">DIAGNOSTICO</th>
-                    <th data-options="field:'item10',width:100">OBSERVACION</th>
+                    <th data-options="field:'item9',width:150">TIPO</th>
+                    <th data-options="field:'item10',width:100">CANTIDAD</th>
                     <th data-options="field:'item11',width:100">FECHA</th>
-                    <th data-options="field:'item12',width:100">REFERIDO</th>
+                    <th data-options="field:'item12',width:100">PROCEDENIA</th>
+                    <th data-options="field:'item13',width:100">MONTO</th>
+                    <th data-options="field:'item14',width:100">OBSERVACION</th>
                 </tr>
             </thead>
             <tbody>

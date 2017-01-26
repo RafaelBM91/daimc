@@ -37,18 +37,21 @@
             <?php
                 $result = mysql_query("SELECT cedula, nombre FROM usuario WHERE area LIKE '%ar_02%';",$link);
                 while ($vio = mysql_fetch_array($result)) {
-                    echo "<option value=\"{$vio[0]}\">{$vio[1]}</option>";
+					$utf = utf8_encode($vio[1]);
+                    echo "<option value=\"{$vio[0]}\">{$utf}</option>";
                 }
             ?>
         </select>
     </div>
     <div class="col-sm-3">
         <select id="acti_02" name="acti_02" class="" title="Actividades" tabindex="12" style="width:250px;">
-            <option value="cap_02_01">Nociones Basicas de Costura</option><option value="cap_02_02">Lenceria de Baño</option>
-            <option value="cap_01_03">Lenceria de Cocina</option><option value="cap_02_04">Basico de Cortinas</option><option value="cap_02_05">Ganchos Decorativos</option>
-            <option value="cap_02_06">Peluqueria</option><option value="cap_02_07">Decoracion de Fiestas Infantiles</option><option value="cap_02_08">Tecnicas de Dibujo</option>
-            <option value="cap_02_09">Tallado en Anime</option><option value="cap_02_10">Piñateria Avanzada</option><option value="cap_02_11">Elaboracion de Cintillos</option>
-            <option value="cap_02_12">Manualidades con Materiales Alternativos</option><option value="cap_02_13">Teatro</option>
+            <?php
+                $result = mysql_query("SELECT * FROM cursos;",$link);
+                while ($vio = mysql_fetch_array($result)) {
+					$utf = utf8_encode($vio[1]);
+                    echo "<option value=\"{$vio[0]}\">{$utf}</option>";
+                }
+            ?>
         </select>
     </div>
     <div class="col-sm-3">

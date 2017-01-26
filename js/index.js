@@ -112,6 +112,8 @@ $(document).ready(function( ){
     //                             TConsulta($('#sel_area_busq').val(),$('#desd_busq').val(),$('#hast_busq').val(),$('input[name=opc_busq]:checked').val(),$('#edad_busq').val());
     // });
 
+    var area_seleccionada = null;
+
     $('#sel_area_busq').change(function(e){
         $('div.bloque_busq_1,div.bloque_busq_2,div.bloque_busq_3,div.bloque_busq_4,div.bloque_busq_5,div.bloque_busq_6,div.bloque_busq_7,div.bloque_busq_8').css({ display: 'none' });
         $.post('consulta_interna.php', { area_real: e.target.value }, function(data){
@@ -122,17 +124,18 @@ $(document).ready(function( ){
             }
             $('#cedula_real_busq').change();
         });
+        area_seleccionada = e.target.value;
         switch (e.target.value) {
             case 'ar_01': {
                 $('div.bloque_busq_4,div.bloque_busq_6,div.bloque_busq_7,div.bloque_busq_8').css({ display: 'block' });
                 break;
             }
             case 'ar_02': {
-                $('div.bloque_busq_3,div.bloque_busq_5,div.bloque_busq_6').css({ display: 'block' });
+                $('div.bloque_busq_3,div.bloque_busq_5').css({ display: 'block' });
                 break;
             }
             case 'ar_03': {
-                $('div.bloque_busq_4,div.bloque_busq_6').css({ display: 'block' });
+                $('div.bloque_busq_4,div.bloque_busq_6,div.bloque_busq_7,div.bloque_busq_8').css({ display: 'block' });
                 break;
             }
             case 'ar_04': {
@@ -172,7 +175,14 @@ $(document).ready(function( ){
                 break;
             }
             case 'ar_12': {
-                $('div.bloque_busq_2,div.bloque_busq_5,div.bloque_busq_6,div.bloque_busq_7,div.bloque_busq_8').css({ display: 'block' });
+                $('div.bloque_busq_2,div.bloque_busq_5,div.bloque_busq_7,div.bloque_busq_8').css({ display: 'block' });
+                break;
+            }
+            case 'todos': {
+                break;
+            }
+            default: {
+                area_seleccionada = null;
                 break;
             }
         }
@@ -181,8 +191,13 @@ $(document).ready(function( ){
     $('input#btn_busq').click(function(e){
         var ser = $('form#princ').serialize();
         // $('div#show_table iframe').attr('src','busqueda/todos.php?'+ser);
-        $('div#show_table iframe').attr('src','busqueda/ar_01.php?'+ser);
-        $('div#show_table').css({ display: 'block'});
+        // $('div#show_table iframe').attr('src','busqueda/ar_01.php?'+ser);
+        if (area_seleccionada != null) {
+            $('div#show_table iframe').attr('src','busqueda/'+area_seleccionada+'.php?'+ser);
+            $('div#show_table').css({ display: 'block'});
+        } else {
+            alert("Debe seleccionar un Area.");
+        }
     });
 
     $(document).on('keyup',function(e){
@@ -254,19 +269,19 @@ $(document).ready(function( ){
 
 
     $('#municipio_atn_busq').change(function(e){
-        llena_parroquias($(this).val(),'#parroquia_atn_busq');
+        // llena_parroquias($(this).val(),'#parroquia_atn_busq');
     });
     $('#municipio_atn').change(function(e){
-        llena_parroquias($(this).val(),'#parroquia_atn');
+        // llena_parroquias($(this).val(),'#parroquia_atn');
     });
     $( document ).on( "change", "#municipio_12", function(e) {
-        llena_parroquias($(this).val(),'#parroquia_12');
+        // llena_parroquias($(this).val(),'#parroquia_12');
     });
     $( document ).on( "change", "#municipio_02", function(e) {
-        llena_parroquias($(this).val(),'#parroquia_02');
+        // llena_parroquias($(this).val(),'#parroquia_02');
     });
     $( document ).on( "change", "#municipio_05", function(e) {
-        llena_parroquias($(this).val(),'#parroquia_05');
+        // llena_parroquias($(this).val(),'#parroquia_05');
     });
 
     $( document ).on( "keypress", ".int", function(e) {
@@ -573,7 +588,7 @@ alert('hola')
     });
 
     $('.municipio_mr').change(function(e){
-        llena_parroquias( );
+        // llena_parroquias( );
     });
 
 

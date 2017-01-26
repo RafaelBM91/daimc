@@ -173,7 +173,7 @@
             if ($i == 2) {
                 $masculinos += (int)$row[$i];
             }
-            $html .= "<td field=\"item{$cont}\"><div class=\"{$class}\">{$rou}</div></td>";
+            $html .= "<td field=\"item{$cont}\"><div class=\"\">{$rou}</div></td>";
         }
         $html .= "</tr>";
         $tr++;
@@ -208,7 +208,7 @@
             $total = $femeninas + $masculinos;
             $title = "title=\"DAIMC &nbsp;&nbsp;&nbsp;&nbsp; FEMENINAS: {$femeninas} &nbsp;&nbsp;&nbsp;&nbsp; MASCULINOS: {$masculinos} &nbsp;&nbsp;&nbsp;&nbsp; TOTAL: {$total} \"";
         ?>
-        <table class="easyui-datagrid" <?php echo $title; ?> style="width:1198px;height:548px">
+        <table class="easyui-datagrid" <?php echo $title; ?> style="width:1196px;height:530px;">
 	        <thead>
 	        	<tr>
                     <th data-options="field:'item1',width:200">AREA</th>

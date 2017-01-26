@@ -1,6 +1,6 @@
 <?php
 
-	$link = mysql_connect("localhost", "root", "ata");
-	mysql_select_db("daimc", $link);
+	$link = mysql_connect("localhost", "root", "imetadmin");
+	mysql_select_db("daimc_new", $link);
 
 ?>

@@ -1,6 +1,7 @@
 <?php
     
-    // include_once "conexion.php";
+    // include_once "/../conexion.php";
+    include("daimc/../conexion.php");
 
     $array = array(
         "Todos" => "<option value=\"todos\">TODOS</option>",
@@ -30,10 +31,6 @@
         for($i=0;$i<count($porciones);$i++)
             $opc .= $array[$porciones[$i]];
     }
-
-    $link = mysql_connect("localhost", "root", "ata");
-    mysql_select_db("daimctest", $link);
-
 ?>
 
 <legend>Busqueda</legend>
@@ -85,8 +82,8 @@
     <!--TIPO DE TALLERS-->
     <div class="col-sm-1 bloque_busq_2" style="width:30px;">
         <div class="radio radio-danger busq-radio" style="display:inline-block;">
-            <input id="opc_busq_6" name="opc_busq" value="8" type="radio" />
-            <label for="opc_busq_6">&nbsp;</label>
+            <input id="opc_busq_8" name="opc_busq" value="8" type="radio" />
+            <label for="opc_busq_8">&nbsp;</label>
         </div>
     </div>
     <div class="col-sm-3 bloque_busq_2" style="border: solid 0px;">
@@ -105,8 +102,8 @@
     <!--TIPO DE CURSOS-->
     <div class="col-sm-1 bloque_busq_3" style="width:30px;">
         <div class="radio radio-danger busq-radio" style="display:inline-block;">
-            <input id="opc_busq_6" name="opc_busq" value="9" type="radio" />
-            <label for="opc_busq_6">&nbsp;</label>
+            <input id="opc_busq_9" name="opc_busq" value="9" type="radio" />
+            <label for="opc_busq_9">&nbsp;</label>
         </div>
     </div>
     <div class="col-sm-3 bloque_busq_3" style="border: solid 0px;">
@@ -159,7 +156,7 @@
         <select id="edad_busq" name="edad_busq" class="" title="Seleccione Edad" tabindex="1" style="width:150px;">
             <option value="">Edad</option>
             <?php
-                $result = mysql_query("SELECT DISTINCT DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(f_nacimiento)), '%Y')+0 AS n FROM atendido ORDER BY n ASC;", $link);
+                $result = mysql_query("SELECT DISTINCT DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(nacimiento)), '%Y')+0 AS n FROM atendido ORDER BY n ASC;",$link);
                 while ($row = mysql_fetch_array($result)) {
                     if($row[0] != NULL) {
                         echo "<option value=\"{$row[0]}\">{$row[0]}</option>";
@@ -189,7 +186,7 @@
     </div>
     <div class="col-sm-3 bloque_busq_7">
         <select id="municipio_atn_busq" name="municipio_atn_busq" class="" title="Municipios" tabindex="" style="width:240px;" >
-            <option value="0">Municipios</option><option value="m1">Andrés Bello</option><option value="m2">Boconó</option><option value="m3">Bolívar</option>
+            <option value="0">Municipios</option><option value="m1_p">Andrés Bello</option><option value="m2_p">Boconó</option><option value="m3">Bolívar</option>
             <option value="m4">Candelaria</option><option value="m5">Carache</option><option value="m6">Escuque</option>
             <option value="m7">José Felipe Márquez Cañizalez</option><option value="m8"> Juan Vicente Campos Elías</option><option value="m9">La Ceiba</option>
             <option value="m10">Miranda</option><option value="m11">Monte Carmelo</option><option value="m12">Motatán</option>

@@ -21,10 +21,10 @@
         <input id="fecha_12" name="fecha_12" type="text" class="form-control" type-data="input_date" title="Fecha" tabindex="8" foco="foco" value="<?php echo $row[1]; ?>" />
         <small>Ingreso correcto de fecha <b>dd-mm-aaaa</b></small>
     </div>
-    <div class="col-sm-3">
-        <select id="tipo_12" name="tipo_12" class="" title="Tipos" tabindex="9" style="width:240px;">
+    <div class="col-sm-4">
+        <select id="tipo_12" name="tipo_12" class="" title="Tipos" tabindex="9" style="width:320px;">
             <?php
-                $result = mysql_query("SELECT * FROM lista_talleres ORDER BY codigo ASC;",$link);
+                $result = mysql_query("SELECT * FROM talleres ORDER BY codigo ASC;",$link);
                 while($row = mysql_fetch_array($result)) {
                     echo "<option value=\"{$row[0]}\">".utf8_encode($row[1])."</option>";
                 }
